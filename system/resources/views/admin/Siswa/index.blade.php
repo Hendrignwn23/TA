@@ -35,7 +35,7 @@
 		<h3>Data Siswa</h3>
 		<button type="button" class="btn btn-primary" style="float: right;" data-bs-toggle="modal" data-bs-target="#exampleModal">
 			<i class="fa fa-plus"></i>
-			Siswa
+			Siswa Baru
 		</button>
 	</div>
 	<div class="card-body">
