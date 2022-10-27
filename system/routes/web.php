@@ -25,79 +25,84 @@ use App\Http\Controllers\BerandaController;
 |
 */
 
-Route::get('admin/beranda', [BerandaController::class, 'index']);
+Route::group(['middleware'=>['auth']], function(){
 
-// Kelas
-Route::get('admin/ruang-kelas', [KelasController::class, 'index']);
-Route::post('admin/ruang-kelas', [KelasController::class, 'simpan']);
-Route::put('admin/ruang-kelas/{kelas}', [KelasController::class, 'edit']);
-Route::delete('admin/ruang-kelas/{kelas}', [KelasController::class, 'hapus']);
-// End Kelas
+	Route::get('admin/beranda', [BerandaController::class, 'index']);
 
-// Siswa
-Route::post('admin/siswa', [SiswaController::class, 'simpan']);
-Route::put('admin/siswa/{siswa}', [SiswaController::class, 'edit']);
-Route::delete('admin/siswa/{siswa}',[SiswaController::class, 'hapus']);
-Route::get('admin/siswa/kelas-1', [SiswaController::class, 'kelas1']);
-Route::get('admin/siswa/kelas-2', [SiswaController::class, 'kelas2']);
-Route::get('admin/siswa/kelas-3', [SiswaController::class, 'kelas3']);
-Route::get('admin/siswa/kelas-4', [SiswaController::class, 'kelas4']);
-Route::get('admin/siswa/kelas-5', [SiswaController::class, 'kelas5']);
-Route::get('admin/siswa/kelas-6', [SiswaController::class, 'kelas6']);
-// End Siswa
+	// Kelas
+	Route::get('admin/ruang-kelas', [KelasController::class, 'index']);
+	Route::post('admin/ruang-kelas', [KelasController::class, 'simpan']);
+	Route::put('admin/ruang-kelas/{kelas}', [KelasController::class, 'edit']);
+	Route::delete('admin/ruang-kelas/{kelas}', [KelasController::class, 'hapus']);
+	// End Kelas
 
-// Guru
-Route::get('admin/guru',[GuruController::class,'index']);
-Route::post('admin/guru',[GuruController::class, 'simpan']);
-Route::put('admin/guru/{guru}', [GuruController::class, 'edit']);
-Route::delete('admin/guru/{guru}',[GuruController::class,'hapus']);
-// End Guru
+	// Siswa
+	Route::post('admin/siswa', [SiswaController::class, 'simpan']);
+	Route::put('admin/siswa/{siswa}', [SiswaController::class, 'edit']);
+	Route::delete('admin/siswa/{siswa}',[SiswaController::class, 'hapus']);
+	Route::get('admin/siswa/kelas-1', [SiswaController::class, 'kelas1']);
+	Route::get('admin/siswa/kelas-2', [SiswaController::class, 'kelas2']);
+	Route::get('admin/siswa/kelas-3', [SiswaController::class, 'kelas3']);
+	Route::get('admin/siswa/kelas-4', [SiswaController::class, 'kelas4']);
+	Route::get('admin/siswa/kelas-5', [SiswaController::class, 'kelas5']);
+	Route::get('admin/siswa/kelas-6', [SiswaController::class, 'kelas6']);
+	// End Siswa
 
-//Alumni
-Route::get('admin/alumni',[SiswaController::class,'alumni']);
-//End Alumni
+	// Guru
+	Route::get('admin/guru',[GuruController::class,'index']);
+	Route::post('admin/guru',[GuruController::class, 'simpan']);
+	Route::put('admin/guru/{guru}', [GuruController::class, 'edit']);
+	Route::delete('admin/guru/{guru}',[GuruController::class,'hapus']);
+	// End Guru
 
-//Informasi
-Route::get('admin/sejarah',[SejarahController::class,'sejarah']);
-Route::post('admin/sejarah',[SejarahController::class,'simpan']);
-Route::delete('admin/sejarah/{sejarah}',[SejarahController::class,'hapus']);
+	//Alumni
+	Route::get('admin/alumni',[SiswaController::class,'alumni']);
+	//End Alumni
 
-Route::get('admin/struktur',[StrukturController::class,'struktur']);
-Route::post('admin/struktur',[StrukturController::class,'simpan']);
-Route::delete('admin/struktur/{struktur}',[StrukturController::class,'hapus']);
+	//Informasi
+	Route::get('admin/sejarah',[SejarahController::class,'sejarah']);
+	Route::post('admin/sejarah',[SejarahController::class,'simpan']);
+	Route::delete('admin/sejarah/{sejarah}',[SejarahController::class,'hapus']);
 
-Route::get('admin/visi_misi',[Visi_misiController::class,'visi_misi']);
-Route::post('admin/visi_misi',[Visi_misiController::class,'simpan']);
-Route::delete('admin/visi_misi/{visi_misi}',[Visi_misiController::class,'hapus']);
+	Route::get('admin/struktur',[StrukturController::class,'struktur']);
+	Route::post('admin/struktur',[StrukturController::class,'simpan']);
+	Route::delete('admin/struktur/{struktur}',[StrukturController::class,'hapus']);
 
-Route::get('admin/prestasi',[PrestasiController::class,'prestasi']);
-Route::post('admin/prestasi',[PrestasiController::class,'simpan']);
-Route::put('admin/prestasi/{prestasi}',[PrestasiController::class,'edit']);
-Route::delete('admin/prestasi/{prestasi}',[PrestasiController::class,'hapus']);
+	Route::get('admin/visi_misi',[Visi_misiController::class,'visi_misi']);
+	Route::post('admin/visi_misi',[Visi_misiController::class,'simpan']);
+	Route::delete('admin/visi_misi/{visi_misi}',[Visi_misiController::class,'hapus']);
 
-Route::get('admin/kolaborasi',[KolaborasiController::class,'kolaborasi']);
-Route::post('admin/kolaborasi',[KolaborasiController::class,'simpan']);
-Route::put('admin/kolaborasi/{kolaborasi}',[KolaborasiController::class,'edit']);
-Route::delete('admin/kolaborasi/{kolaborasi}',[KolaborasiController::class,'hapus']);
+	Route::get('admin/prestasi',[PrestasiController::class,'prestasi']);
+	Route::post('admin/prestasi',[PrestasiController::class,'simpan']);
+	Route::put('admin/prestasi/{prestasi}',[PrestasiController::class,'edit']);
+	Route::delete('admin/prestasi/{prestasi}',[PrestasiController::class,'hapus']);
 
-Route::get('admin/lomba',[LombaController::class,'lomba']);
-Route::post('admin/lomba',[LombaController::class,'simpan']);
-Route::put('admin/lomba/{lomba}',[LombaController::class,'edit']);
-Route::delete('admin/lomba/{lomba}',[LombaController::class,'hapus']);
-//End Informasi
+	Route::get('admin/kolaborasi',[KolaborasiController::class,'kolaborasi']);
+	Route::post('admin/kolaborasi',[KolaborasiController::class,'simpan']);
+	Route::put('admin/kolaborasi/{kolaborasi}',[KolaborasiController::class,'edit']);
+	Route::delete('admin/kolaborasi/{kolaborasi}',[KolaborasiController::class,'hapus']);
 
-//User
-Route::get('admin/user',[UserController::class,'index']);
-Route::post('admin/user',[UserController::class,'simpan']);
-Route::put('admin/user/{user}',[UserController::class,'edit']);
-Route::delete('admin/user/{user}',[UserController::class,'hapus']);
-//End User
+	Route::get('admin/lomba',[LombaController::class,'lomba']);
+	Route::post('admin/lomba',[LombaController::class,'simpan']);
+	Route::put('admin/lomba/{lomba}',[LombaController::class,'edit']);
+	Route::delete('admin/lomba/{lomba}',[LombaController::class,'hapus']);
+	//End Informasi
+
+	//User
+	Route::get('admin/user',[UserController::class,'index']);
+	Route::post('admin/user',[UserController::class,'simpan']);
+	Route::put('admin/user/{user}',[UserController::class,'edit']);
+	Route::delete('admin/user/{user}',[UserController::class,'hapus']);
+	//End User
+});
 
 //Login
-Route::get('Client/login',[AuthController::class, 'showlogin']);
-Route::post('Client/login',[AuthController::class, 'loginprocess']);
-Route::get('Client/logout',[AuthController::class, 'logout']);
+Route::get('admin/login',[AuthController::class, 'showlogin']);
+Route::post('admin/login',[AuthController::class, 'loginprocess']);
+Route::get('admin/logout',[AuthController::class, 'logout']);
 //End Login
+
+
 Route::get('Client/beranda', [HomeController::class, 'showberanda']);
 Route::get('Client/statistik_siswa', [HomeController::class, 'showstatistik_siswa']);
 Route::get('Client/statistik_guru', [HomeController::class, 'showstatistik_guru']);

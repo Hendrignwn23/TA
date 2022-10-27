@@ -5,7 +5,7 @@ use Auth;
 class AuthController extends Controller
 {
 	function showlogin(){
-		return view('Client.login');
+		return view('auth.login');
 	}
 
 	function loginprocess(){
@@ -19,6 +19,8 @@ class AuthController extends Controller
 	function logout(){
 		Auth::logout();
 
-		return view('Client.login');
+		return view('auth.login');
 	}
+
+
 }

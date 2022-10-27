@@ -37,7 +37,7 @@
                       <i class="mdi mdi-logout-variant text-primary"></i>                      
                     </div>
                     <div class="item-content d-flex align-items-start flex-column justify-content-center">
-                      <a class="mdc-drawer-link" href="{{url('Client/logout')}}">
+                      <a class="mdc-drawer-link" href="{{url('admin/logout')}}">
                       <h6 class="item-subject font-weight-normal" >Logout</h6>
                       </a>
                     </div>

@@ -44,9 +44,6 @@
             </ul>
 
           </nav><!-- .navbar -->
-            <ul class="nav justify-content-end ">
-              <li><a class="getstarted scrollto" href="/Client/login">Login</a></li>
-            </ul>
         </div>
       </div>
     </nav>
